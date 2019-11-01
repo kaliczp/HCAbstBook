@@ -65,6 +65,11 @@ while ($line = <STDIN>)
 	print "\\begin{flushleft}\n";
 	print "\n\\abstrtitle{",$title,"}\n\n";
 	print "\\name{",$fullauthors,"}\n\n";
+	## Creation of indexes
+	for (my $nameidx=0; $nameidx < $numauthors; $nameidx++) {
+	    $aktauth = @authors[$nameidx];
+	    print "\\index{",$aktauth,"}\n"; 
+	}
     }
     if($number > 4 && $number < 16 && $line =~ m/[0-9]\)/ && $inst_was < 2){
 	if($moreinst){
