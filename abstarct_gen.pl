@@ -57,14 +57,14 @@ while ($line = <STDIN>)
 	    $line =~ s/3:9/\{3,9\}/g;
 	    $line =~ s/2:10/\{2,10\}/g;
 	}
-	$authors = $line;
+	$fullauthors = $line;
 # A nem vesszővel kezdődő szóközök cserélése törhetetlenné.
 #	$authors =~ s///g
 	## Miután a szerzők megvannak lehet írni a toc-ot és
 	## a szöveget.
 	print "\\begin{flushleft}\n";
 	print "\n\\abstrtitle{",$title,"}\n\n";
-	print "\\name{",$authors,"}\n\n";
+	print "\\name{",$fullauthors,"}\n\n";
     }
     if($number > 4 && $number < 16 && $line =~ m/[0-9]\)/ && $inst_was < 2){
 	if($moreinst){
