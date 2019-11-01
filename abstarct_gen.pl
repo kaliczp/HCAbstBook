@@ -68,6 +68,7 @@ while ($line = <STDIN>)
 	## Creation of indexes
 	for (my $nameidx=0; $nameidx < $numauthors; $nameidx++) {
 	    $aktauth = @authors[$nameidx];
+	    $aktauth =~ s/^\s+//;
 	    print "\\index{",$aktauth,"}\n"; 
 	}
     }
