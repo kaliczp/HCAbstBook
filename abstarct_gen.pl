@@ -69,7 +69,10 @@ while ($line = <STDIN>)
 	for (my $nameidx=0; $nameidx < $numauthors; $nameidx++) {
 	    $aktauth = @authors[$nameidx];
 	    $aktauth =~ s/^\s+//;
-	    print "\\index{",$aktauth,"}\n"; 
+	    ## Reorder name
+	    @aktauthsplit = split(" ",$aktauth);
+	    $reorderaktauth = join(", ", @aktauthsplit[$#aktauthsplit],@aktauthsplit[0]);
+	    print "\\index{",$reorderaktauth,"}\n"; 
 	}
     }
     if($number > 4 && $number < 16 && $line =~ m/[0-9]\)/ && $inst_was < 2){
