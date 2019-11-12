@@ -1,5 +1,8 @@
-% rm abstract.tex;for i in `ls text/*txt`; do perl ./abstarct_gen.pl < $i >> abstract.tex; done
-% Publikációs listához
+% Oral presentation file: eaabstract.tex, folder: EaText
+% rm eaabstract.tex;for i in `ls EaText/*txt`; do perl ./abstarct_gen.pl < $i >> eaabstract.tex; done
+% Poster presentation file: posabstract.tex, folder: PostText
+% rm posabstract.tex;for i in `ls PostText/*txt`; do perl ./abstarct_gen.pl < $i >> posabstract.tex; done
+% List of publications
 % for i in `ls newnumtext/*txt`; do perl ./nevsorgen.pl < $i > publik.txt; done
 % for i in `ls text/*txt`; do perl ./nevsorgen.pl < $i; done
 % For the right numbering put into the abstract.tex after the last oral and \newpage :
@@ -119,7 +122,10 @@ Sopron, Hungary
 \newcounter{articleid}
 \newpage{}
 \fancyhead[RE,LO]{Article ID: \thearticleid}
-\include{abstract}
+\include{eaabstract}
+\setcounter{articleid}{0}
+\fancyhead[RE,LO]{Article ID: P\thearticleid}
+\include{posabstract}
 
 % \newpage{}
 % \thispagestyle{empty}
