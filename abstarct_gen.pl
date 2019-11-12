@@ -55,6 +55,7 @@ while ($line = <STDIN>)
 	    $line =~ s/4:6/\{4,6\}/g;
 	    $line =~ s/2:6/\{2,6\}/g;
 	    $line =~ s/3:9/\{3,9\}/g;
+	    $line =~ s/3:4/\{3,4\}/g;
 	    $line =~ s/2:10/\{2,10\}/g;
 	}
 	$fullauthors = $line;
