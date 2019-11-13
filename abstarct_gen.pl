@@ -73,7 +73,11 @@ while ($line = <STDIN>)
 	    ## Reorder name
 	    @aktauthsplit = split(" ",$aktauth);
 	    $reorderaktauth = join(", ", @aktauthsplit[$#aktauthsplit],@aktauthsplit[0]);
-	    print "\\index{",$reorderaktauth,"}\n"; 
+	    if($nameidx == 0){
+		print "\\index{",$reorderaktauth,"|textit}\n";
+	    } else {
+		print "\\index{",$reorderaktauth,"}\n";
+	    }
 	}
     }
     if($number > 4 && $number < 16 && $line =~ m/[0-9]\)/ && $inst_was < 2){
