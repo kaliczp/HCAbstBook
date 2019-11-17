@@ -3,7 +3,8 @@ my $moreinst = 0;
 $inst_was = 0;
 my $title = "Test";
 my $authors = "Peter Kalicz";
-print "\\stepcounter{articleid}";
+print "\\phantomsection\n";
+print "\\stepcounter{articleid}\n";
 while ($line = <STDIN>)
 {
     $number++;
