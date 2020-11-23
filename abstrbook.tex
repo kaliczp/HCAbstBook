@@ -103,7 +103,8 @@ Sopron, Hungary
 \fancyhead[LE,RO]{\thepage}
 \fancyhead[RE,LO]{Contents}
 
-
+\phantomsection
+\addcontentsline{toc}{section}{Contents}
 \tableofcontents{}
 \newcounter{articleid}
 \newpage{}
@@ -114,6 +115,8 @@ Sopron, Hungary
 \include{posabstract}
 
 \fancyhead[RE,LO]{Index}
+\phantomsection
+\addcontentsline{toc}{section}{Index}
 \printindex
 
 \end{document}
