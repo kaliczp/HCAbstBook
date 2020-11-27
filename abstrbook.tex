@@ -17,6 +17,8 @@
 % List of publications
 % for i in `ls PostText/*txt`; do perl ./nevsorgen.pl < $i >> publik.txt; done
 % for i in `ls EaText/*txt`; do perl ./nevsorgen.pl < $i >> publik.txt; done
+% libreoffice scripted saving puts strange character first. To eliminate:
+% echo > tmp.txt; cat filename.txt >> tmp.txt; edit it and mv back.
 
 %% For electronic version
 \documentclass[10pt,a5paper,oneside]{book}
