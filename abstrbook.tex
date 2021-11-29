@@ -33,6 +33,7 @@
 % recommended by psnfss
 \usepackage{textcomp}
 \usepackage{times}
+\usepackage{pdfpages}
 \usepackage{makeidx}
 \makeindex
 %\PassOptionsToPackage{hyphens}{url}
@@ -49,6 +50,7 @@
 %% \SetWatermarkScale{.8}
 
 \begin{document}
+\includepdf{HydroCarpathCover.pdf}
 \newcommand{\abstrtitle}[1]{\Large \textbf{\textsc{#1}}\normalsize \smallskip}
 \newcommand{\name}[1]{\textbf{\textsc{#1}}\smallskip}
 \newcommand{\institute}[1]{\footnotesize #1}
@@ -107,7 +109,7 @@ Sopron, Hungary
 
 
 \setcounter{page}{2}
-
+\cleardoublepage{}
 \fancyhead[LE,RO]{\thepage}
 \fancyhead[RE,LO]{Contents}
 
