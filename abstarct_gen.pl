@@ -47,7 +47,10 @@ while ($line = <STDIN>)
 	    ## Több hivatkozás direkt csere. Jobb megoldás kellene.
 	    $line =~ s/1:2:3/\{1,2,3\}/g;
 	    $line =~ s/1:2/\{1,2\}/g;
+	    $line =~ s/1:5/\{1,5\}/g;
 	    $line =~ s/2:3:7/\{2,3,7\}/g;
+	    $line =~ s/1:3:5/\{1,3,5\}/g;
+	    $line =~ s/2:4:5/\{2,4,5\}/g;
 	    $line =~ s/2:3/\{2,3\}/g;
 	    $line =~ s/1:3/\{1,3\}/g;
 	    $line =~ s/2:4/\{2,4\}/g;
@@ -57,6 +60,7 @@ while ($line = <STDIN>)
 	    $line =~ s/2:6/\{2,6\}/g;
 	    $line =~ s/3:9/\{3,9\}/g;
 	    $line =~ s/3:4/\{3,4\}/g;
+	    $line =~ s/3:5/\{3,5\}/g;
 	    $line =~ s/2:10/\{2,10\}/g;
 	}
 	$fullauthors = $line;
