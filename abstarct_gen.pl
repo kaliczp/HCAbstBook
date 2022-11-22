@@ -36,7 +36,7 @@ while ($line = <STDIN>)
 	} else {
 	    $firstauthname = join("",$firstauthname,".")
 	}
-	print "\\addcontentsline{toc}{section}{";
+	print "\\addcontentsline{toc}{subsection}{";
 	print join(" ",$firstauthname,$title),"}\n";
 	## A szerzők csinosítása a szöveghez
 	## In the case of several institutions
