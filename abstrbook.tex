@@ -50,6 +50,7 @@
 \pagestyle{fancy}
 \cfoot{}
 \usepackage[final]{microtype}
+\setcounter{tocdepth}{3}
 %% \usepackage{draftwatermark}
 %% \SetWatermarkText{DRAFT 1}
 %% \SetWatermarkScale{.8}
@@ -122,6 +123,7 @@ financed under the TKP2021-NKTA funding scheme.}
 \fancyhead[LE,RO]{\thepage}
 \fancyhead[RE,LO]{Contents}
 
+\setcounter{secnumdepth}{0}% Avoid numbering sections
 \phantomsection
 \addcontentsline{toc}{section}{Contents}
 \tableofcontents{}
