@@ -20,6 +20,9 @@
 % rm eaabstract.tex;for i in `ls EaText/*txt`; do perl ./abstarct_gen.pl < $i >> eaabstract.tex; done
 % Poster presentation file: posabstract.tex, folder: PostText
 % rm posabstract.tex;for i in `ls PostText/*txt`; do perl ./abstarct_gen.pl < $i >> posabstract.tex; done
+% Insert one page poster pdf after abstract
+% \includepdf[addtotoc={1, subsubsection, 1, Poster,P31}]{Posters/P31.pdf}
+
 % List of publications
 % for i in `ls PostText/*txt`; do perl ./nevsorgen.pl < $i >> publik.txt; done
 % for i in `ls EaText/*txt`; do perl ./nevsorgen.pl < $i >> publik.txt; done
@@ -148,8 +151,4 @@ financed under the TKP2021-NKTA funding scheme.}
 \addcontentsline{toc}{section}{Appendix}
 \addcontentsline{toc}{subsection}{Conference Programme}
 \includepdf[pages = 1-5]{HydroCarpathProgramme.pdf}
-\setcounter{page}{36}
-\cleardoublepage{}
-\addcontentsline{toc}{subsection}{Posters of the Conference}
-\includepdf[pages = 1-15]{PostersHydroCarpath2021.pdf}
 \end{document}
