@@ -132,11 +132,13 @@ financed under the TKP2021-NKTA funding scheme.}
 \tableofcontents{}
 \newcounter{articleid}
 \newpage{}
+\addtocontents{toc}{\vspace{1\baselineskip}}
 \phantomsection
 \addcontentsline{toc}{section}{Oral presentations}
 \fancyhead[RE,LO]{Article ID: \thearticleid}
 \input{eaabstract}
 \setcounter{articleid}{0}
+\addtocontents{toc}{\protect\newpage}
 \phantomsection
 \addcontentsline{toc}{section}{Poster presentations}
 \fancyhead[RE,LO]{Article ID: P\thearticleid}
@@ -144,9 +146,11 @@ financed under the TKP2021-NKTA funding scheme.}
 
 \fancyhead[RE,LO]{Index}
 \phantomsection
+\addtocontents{toc}{\vspace{1\baselineskip}}
 \addcontentsline{toc}{section}{Index}
 \printindex
 \phantomsection
+\addtocontents{toc}{\vspace{1\baselineskip}}
 \appendix
 \addcontentsline{toc}{section}{Appendix}
 \addcontentsline{toc}{subsection}{Conference Programme}
