@@ -1,15 +1,15 @@
 \providecommand{\pdfxopt}{a-2b,allxmp,mathxmp}
 \begin{filecontents*}{\jobname.xmpdata}
-\Title{Abstracts and Posters of HydroCarpath 2022 International Conference}
-\Subject{The HydroCarpath conference series 2022 title was Hydrology of the Carpathian Basin: Synthesis of Data, Driving Factors and Processes across Scales. The conference held in Vienna at the Technical University.}
-\Author{Péter Kalicz\sep Kamila Hlavčová\sep Silvia Kohnová\sep Borbála Széles\sep Viera Rattayová\sep Zoltán Gribovszki}
+\Title{Abstracts of HydroCarpath 2023 International Conference}
+\Subject{The HydroCarpath conference series 2023 title was Hydrology of the Carpathian Basin: Catchment Experiments and Modeling for Improved Description and Prediction of Hydrological Processes. The conference held in Vienna at the Technical University.}
+\Author{Péter Kalicz\sep Kamila Hlavčová\sep Silvia Kohnová\sep Borbála Széles\sep Anna Liová\sep Zoltán Gribovszki}
 \Language{en-GB}
 \Keywords{hydrology\sep catchment processes\sep river processes\sep field experiments\sep modeling\sep Carpathian Basin\sep water resources}
 \Publisher{University of Sopron Press}
 \Creator{LaTeX + pdfx.sty with \pdfxopt\space option}
-\Date{2022-11-24}
-\Doi{10xxxx/xxxxxx}
-\ISBN{978-XXX-XXX-XXX-X}
+\Date{2023-11-09}
+\Doi{10.35511/978-963-344-497-2}
+\ISBN{978-963-334-497-2}
 \end{filecontents*}
 % TODO Different level title for oral and poster presentations.
 % IMPORTANT! pdf 1.4 format for posters
@@ -55,15 +55,15 @@
 \usepackage[final]{microtype}
 \setcounter{tocdepth}{3}
 %% \usepackage{draftwatermark}
-%% \SetWatermarkText{DRAFT 1}
+%% \SetWatermarkText{DRAFT 7}
 %% \SetWatermarkScale{.8}
 
 \begin{document}
-\includepdf{HydroCarpathCover.pdf}
+% \includepdf{HydroCarpathCover.pdf}
 \newcommand{\abstrtitle}[1]{\Large \textbf{\textsc{#1}}\normalsize \smallskip}
 \newcommand{\name}[1]{\textbf{\textsc{#1}}\smallskip}
 \newcommand{\institute}[1]{\footnotesize #1}
-\newcommand{\email}[1]{\texttt{#1}\normalsize}
+\newcommand{\email}[1]{\texttt{#1} \normalsize}
 
 \begin{titlepage}
 \centering
@@ -75,18 +75,19 @@ International Conference
 
 \vspace{0.5cm}
 Hydrology of the Carpathian Basin:\\
-Synthesis of Data, Driving Factors and Processes across Scales
+Catchment Experiments and Modeling for Improved
+Description and Prediction of Hydrological Processes
 \upshape
 \normalsize
 \mdseries
 
 \vspace{1cm}
-Abstracts and Posters of the Conference
+Abstracts of the Conference
 
 \vspace{3cm}
 Edited by\\
 Péter Kalicz, Kamila Hlavčová,\\
-Silvia Kohnová, Borbála Széles, Viera Rattayová, Zoltán Gribovszki
+Silvia Kohnová, Borbála Széles, Anna Liová, Zoltán Gribovszki
 
 
 \vfill
@@ -94,7 +95,7 @@ Vienna, Austria, \\
 Bratislava, Slovakia, \\
 Sopron, Hungary
 
-24 November 2022
+9 November 2023
 \end{titlepage}
 
 \newpage{}
@@ -111,14 +112,14 @@ financed under the TKP2021-NKTA funding scheme.}
 
 \vspace*{\fill}
 
-\noindent{}{\footnotesize{}HydroCarpath 2022 Conference\newline{} 2022-11-24 8:30–16:00}
+\noindent{}{\footnotesize{}HydroCarpath 2023 Conference\newline{} 2023-11-09 8:30–16:00}
 
 \hspace*{\fill} \hspace{1mm} \raisebox{0mm}[0pt][0pt]{\raisebox{-22mm}{\includegraphics[height=26 mm]{kiado1}}}
 
-\noindent{}\copyright{\footnotesize{}Responsible publisher:\newline{} Prof. Dr. Attila Fábián rector \newline{} University of Sopron Press, 2022. All rights reserved.}
+\noindent{}\copyright{\footnotesize{}Responsible publisher:\newline{} Prof. Dr. Attila Fábián rector \newline{} University of Sopron Press, 2023. All rights reserved.}
 
-\noindent {\footnotesize{}ISBN 978-XXX-XXX-XXX-X (pdf)}
-\noindent {\footnotesize{}\href{https://doi.org/10.XXXXXX/XXX.X}{DOI: 10.XXXXXX/XXX.X}}
+\noindent {\footnotesize{}ISBN 978-963-334-497-2 (pdf)}
+\noindent {\footnotesize{}\href{https://doi.org/10.35511/978-963-344-497-2}{DOI: 10.35511/978-963-344-497-2}}
 
 
 \setcounter{page}{2}
@@ -140,7 +141,7 @@ financed under the TKP2021-NKTA funding scheme.}
 \setcounter{articleid}{0}
 \addtocontents{toc}{\protect\newpage}
 \phantomsection
-\addcontentsline{toc}{section}{Poster presentations}
+\addcontentsline{toc}{section}{Poster with short oral presentation}
 \fancyhead[RE,LO]{Article ID: P\thearticleid}
 \input{posabstract}
 
@@ -149,10 +150,11 @@ financed under the TKP2021-NKTA funding scheme.}
 \addtocontents{toc}{\vspace{1\baselineskip}}
 \addcontentsline{toc}{section}{Index}
 \printindex
-\phantomsection
-\addtocontents{toc}{\vspace{1\baselineskip}}
-\appendix
-\addcontentsline{toc}{section}{Appendix}
-\addcontentsline{toc}{subsection}{Conference Programme}
-\includepdf[pages=-]{HydroCarpathProgramme.pdf}
+
+%% \phantomsection
+%% \addtocontents{toc}{\vspace{1\baselineskip}}
+%% \appendix
+%% \addcontentsline{toc}{section}{Appendix}
+%% \addcontentsline{toc}{subsection}{Conference Programme}
+%% \includepdf[pages=-]{HydroCarpathProgramme.pdf}
 \end{document}
