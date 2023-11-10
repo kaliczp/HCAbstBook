@@ -47,9 +47,11 @@ while ($line = <STDIN>)
 	    ## Több hivatkozás direkt csere. Jobb megoldás kellene.
 	    $line =~ s/1:2:3/\{1,2,3\}/g;
 	    $line =~ s/1:2/\{1,2\}/g;
+	    $line =~ s/1:4/\{1,4\}/g;
 	    $line =~ s/1:5/\{1,5\}/g;
 	    $line =~ s/2:3:7/\{2,3,7\}/g;
 	    $line =~ s/1:3:5/\{1,3,5\}/g;
+	    $line =~ s/2:3:4/\{2,3,4\}/g;
 	    $line =~ s/2:4:5/\{2,4,5\}/g;
 	    $line =~ s/2:3/\{2,3\}/g;
 	    $line =~ s/1:3/\{1,3\}/g;
@@ -98,17 +100,15 @@ while ($line = <STDIN>)
 	## Itt csak menteni kellene
 	$inst_was = 1;
     }
-    if ($number > 5 && $number < 20 && $line =~ /^\s*$/) { # checks for 0 or more whitespaces (\s*) bound by beginning(^)/end($) of line.
+    if ($number > 5 && $number < 16 && $line =~ /^\s*$/) { # checks for 0 or more whitespaces (\s*) bound by beginning(^)/end($) of line.
 	$inst_was = 2;
-	## Institutionokat nyomtatni, aztán az emailt
-	print "\\end{flushleft}\n\n\\noindent";
-	$number = 21;
     }
-    # if($number > 5 && $number < 10 && $line !~ /\)/ && $inst_was !~ 1){
-    # 	## Institutionokat nyomtatni, aztán az emailt
-    # 	print "\\end{flushleft}\n\n\\noindent\n";
-    # 	$number = 20;
-    # }
+    if($line =~ /@/ && $line !~ /\)/ && $inst_was !~ 1){
+	## After affiliation email is printed
+	print "\\email{",$line,"}\n\n";
+	print "\\end{flushleft}\n\n\\noindent\n";
+	$number = 20;
+    }
     if($number > 20){
 	print $line,"\n";
     }
