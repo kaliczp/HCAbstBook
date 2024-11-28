@@ -98,17 +98,20 @@ while ($line = <STDIN>)
 	## Itt csak menteni kellene
 	$inst_was = 1;
     }
-    if ($number > 5 && $number < 20 && $line =~ /^\s*$/) { # checks for 0 or more whitespaces (\s*) bound by beginning(^)/end($) of line.
+    if ($number > 5 && $number < 16 && $line =~ /^\s*$/) { # checks for 0 or more whitespaces (\s*) bound by beginning(^)/end($) of line.
 	$inst_was = 2;
-	## Institutionokat nyomtatni, aztán az emailt
-	print "\\end{flushleft}\n\n\\noindent";
-	$number = 21;
     }
     # if($number > 5 && $number < 10 && $line !~ /\)/ && $inst_was !~ 1){
     # 	## Institutionokat nyomtatni, aztán az emailt
     # 	print "\\end{flushleft}\n\n\\noindent\n";
     # 	$number = 20;
     # }
+    if($line =~ /@/ && $line !~ /\)/ && $inst_was !~ 1){
+	## After affiliation email is printed
+	print "\\email{",$line,"}\n\n";
+	print "\\end{flushleft}\n\n\\noindent\n";
+	$number = 20;
+    }
     if($number > 20){
 	print $line,"\n";
     }
