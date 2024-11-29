@@ -1,15 +1,15 @@
 \providecommand{\pdfxopt}{a-2b,allxmp,mathxmp}
 \begin{filecontents*}{\jobname.xmpdata}
 \Title{Proceedings of HydroCarpath 2024 International Conference}
-\Subject{The HydroCarpath conference series 2024 title was Hydrology of the Carpathian Basin: Coupling Experiments, Remote Sensing, and Modelling for Examining Processes, Patterns, and Regimes. The conference held in Vienna at the Technical University.}
-\Author{Péter Kalicz\sep Kamila Hlavčová\sep Silvia Kohnová\sep Borbála Széles\sep Anna Liová\sep Zoltán Gribovszki}
+\Subject{The HydroCarpath conference series 2024 title was The Hydrology of the Carpathians: Coupling Experiments, Remote Sensing, and Modelling for Examining Processes, Patterns, and Regimes. The conference held in Vienna at the Technical University.}
+\Author{Péter Kalicz\sep Kamila Hlavčová\sep Borbála Széles\sep Mitra Tanhapour\sep Lili Muraközy\sep Zoltán Gribovszki}
 \Language{en-GB}
 \Keywords{hydrology\sep catchment processes\sep river processes\sep field experiments\sep modeling\sep Carpathian Basin\sep water resources}
 \Publisher{University of Sopron Press}
 \Creator{LaTeX + pdfx.sty with \pdfxopt\space option}
 \Date{2024-12-05}
-\Doi{10xxxx/xxxxxx}
-\ISBN{978-XXX-XXX-XXX-X}
+\Doi{10.35511/978-963-334-539-9}
+\ISBN{978-963-334-539-9}
 \end{filecontents*}
 % TODO Different level title for oral and poster presentations.
 % IMPORTANT! pdf 1.4 format for posters
@@ -34,7 +34,7 @@
 %% For final book version
 %\documentclass[10pt,a5paper,twoside]{book}
 \usepackage[\pdfxopt]{pdfx}
-\usepackage[margin=2.2cm,a5paper]{geometry}
+\usepackage[top=1.9cm,bottom=2.1cm, left=2.0cm,right=2.0cm,a5paper]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
@@ -54,12 +54,12 @@
 \cfoot{}
 \usepackage[final]{microtype}
 \setcounter{tocdepth}{3}
-\usepackage{draftwatermark}
-\SetWatermarkText{DRAFT 4}
-\SetWatermarkScale{.8}
+%% \usepackage{draftwatermark}
+%% \SetWatermarkText{DRAFT 6}
+%% \SetWatermarkScale{.8}
 
 \begin{document}
-\includepdf{HydroCarpathCover.pdf}
+%\includepdf{HydroCarpathCover.pdf}
 \newcommand{\abstrtitle}[1]{\Large \textbf{\textsc{#1}}\normalsize \smallskip}
 \newcommand{\name}[1]{\textbf{\textsc{#1}}\smallskip}
 \newcommand{\institute}[1]{\footnotesize #1}
@@ -74,7 +74,7 @@ HydroCarpath \\
 International Conference
 
 \vspace{0.5cm}
-Hydrology of the Carpathian Basin:\\
+The Hydrology of the Carpathians:\\
 Coupling Experiments, Remote Sensing, and Modelling\\
 for Examining Processes, Patterns, and Regimes
 \upshape
@@ -124,8 +124,8 @@ This work is licensed under \href{https://creativecommons.org/licenses/by-nc-nd/
 
 \noindent{}Responsible publisher: Prof. Dr. Attila Fábián rector \newline{} University of Sopron Press, 2024
 
-\noindent ISBN 978-XXX-XXX-XXX-X (pdf)\newline{}
-\noindent \href{https://doi.org/10.XXXXX/XXX-XXX-XXX-XXX-X}{DOI: 10.XXXXX/XXX-XXX-XXX-XXX-X}
+\noindent ISBN 978-963-334-539-9 (pdf)\newline{}
+\noindent \href{https://doi.org/10.35511/978-963-334-539-9}{DOI: 10.35511/978-963-334-539-9}
 \hspace*{\fill} \hspace{1mm} \raisebox{0mm}[0pt][0pt]{\raisebox{-3mm}{\includegraphics[height=26 mm]{kiado1}}}
 \normalsize{}
 
@@ -140,6 +140,11 @@ This work is licensed under \href{https://creativecommons.org/licenses/by-nc-nd/
 \tableofcontents{}
 \newcounter{articleid}
 \newpage{}
+\phantomsection
+\addcontentsline{toc}{section}{Conference Programme}
+\includepdf[pages=-]{HydroCarpathProgramme.pdf}
+% enable new page in toc if necessary
+
 \addtocontents{toc}{\vspace{1\baselineskip}}
 \phantomsection
 \addcontentsline{toc}{section}{Oral presentations}
@@ -159,8 +164,8 @@ This work is licensed under \href{https://creativecommons.org/licenses/by-nc-nd/
 \printindex
 \phantomsection
 \addtocontents{toc}{\vspace{1\baselineskip}}
-\appendix
-\addcontentsline{toc}{section}{Appendix}
-\addcontentsline{toc}{subsection}{Conference Programme}
-\includepdf[pages=-]{HydroCarpathProgramme.pdf}
+%% \appendix
+%% \addcontentsline{toc}{section}{Appendix}
+%% \addcontentsline{toc}{subsection}{Conference Programme}
+%% \includepdf[pages=-]{HydroCarpathProgramme.pdf}
 \end{document}
