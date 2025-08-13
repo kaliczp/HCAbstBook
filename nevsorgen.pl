@@ -40,18 +40,18 @@ while ($line = <STDIN>)
 	if($line =~ /\(/){
 	    $line =~ s/\([0-9]//g;
 	    ## Több hivatkozás direkt csere. Jobb megoldás kellene.
-	    $line =~ s/1:2:3//g;
-	    $line =~ s/1:2//g;
-	    $line =~ s/2:3:7//g;
-	    $line =~ s/2:3//g;
-	    $line =~ s/1:3//g;
-	    $line =~ s/2:4//g;
-	    $line =~ s/1:7//g;
-	    $line =~ s/4:5//g;
-	    $line =~ s/4:6//g;
-	    $line =~ s/2:6//g;
-	    $line =~ s/3:9//g;
-	    $line =~ s/2:10//g;
+	    $line =~ s/:2:3//g;
+	    $line =~ s/:2//g;
+	    $line =~ s/:3:7//g;
+	    $line =~ s/:3//g;
+	    $line =~ s/:3//g;
+	    $line =~ s/:4//g;
+	    $line =~ s/:7//g;
+	    $line =~ s/:5//g;
+	    $line =~ s/:6//g;
+	    $line =~ s/:6//g;
+	    $line =~ s/:9//g;
+	    $line =~ s/:10//g;
 	}
 	$authors = $line;
 # A nem vesszővel kezdődő szóközök cserélése törhetetlenné.
