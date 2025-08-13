@@ -1,10 +1,19 @@
-# for i in `ls *txt`; do perl ../nevsorgen.pl $i < $i >> fullauthtitle.txt; done
+#!/usr/bin/perl
+# Use: rm publik.txt; for i in `ls *txt`; do perl ../nevsorgen.pl $i >> publik.txt; done
+use strict;
+use warnings;
+
+my $file = $ARGV[0];
+open my $abstract, $file or die "Could not open $file: $!";
+
 my $number = 0;
 my $moreinst = 0;
 my $inst_was = 0;
 my $title = "Test";
 my $authors = "Peter Kalicz";
-while ($line = <STDIN>)
+my $articleid = (split("_",(split("/",$file))[1]))[0];
+print $articleid,"\n";
+while (my $line = <$abstract>)
 {
     $number++;
     $line =~ s/\r//g;
@@ -84,3 +93,4 @@ while ($line = <STDIN>)
     # }
 }
 print "\n\n";
+close $abstract;
