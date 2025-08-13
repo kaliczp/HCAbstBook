@@ -1,7 +1,7 @@
 # for i in `ls *txt`; do perl ../nevsorgen.pl $i < $i >> fullauthtitle.txt; done
 my $number = 0;
 my $moreinst = 0;
-$inst_was = 0;
+my $inst_was = 0;
 my $title = "Test";
 my $authors = "Peter Kalicz";
 while ($line = <STDIN>)
@@ -14,22 +14,22 @@ while ($line = <STDIN>)
     }
     if($number == 3){
 	## A tartalomjegyzék sor előállítása. Nem szedett ki :2-ket!
-	$rawauth = $line;
+	my $rawauth = $line;
 	if($rawauth =~ /\([1-9]/){
 	    $rawauth =~ s/\([1-9]//g;
 	    $rawauth =~ s/\:[2-9]//g;
 	    $moreinst = 1;
 	}
 	my @authors = split(",",$rawauth);
-	$numauthors = $#authors + 1;
-	@name = split(" ",@authors[0]);
-	$firstauthname = @name[$#name];
+	my $numauthors = $#authors + 1;
+	my @name = split(" ",$authors[0]);
+	my $firstauthname = $name[$#name];
 	if($numauthors > 1){
 	    if($numauthors > 2){
-		$firstauthname = join(" ",$firstauthname,"et~al.");
+		my $firstauthname = join(" ",$firstauthname,"et~al.");
 	    } else {
-		@name = split(" ", @authors[1]);
-		$secondauth = @name[$#name];
+		@name = split(" ", $authors[1]);
+		my $secondauth = $name[$#name];
 		$firstauthname = join("",$firstauthname," and ", $secondauth,".");
 	    }
 	} else {
