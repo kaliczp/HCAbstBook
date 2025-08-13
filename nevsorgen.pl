@@ -58,7 +58,7 @@ while ($line = <STDIN>)
 #	$authors =~ s///g
 	## Miután a szerzők megvannak lehet írni a toc-ot és
 	## a szöveget.
-	print $authors,": ";
+	print $authors,"\n";
 	print $title;
     }
     if($number > 4 && $number < 16 && $line =~ m/[0-9]\)/ && $inst_was < 2){
