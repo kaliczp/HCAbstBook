@@ -24,8 +24,8 @@
 % \includepdf[addtotoc={1, subsubsection, 1, Poster,P31}]{Posters/P31.pdf}
 
 % List of publications
-% for i in `ls PostText/*txt`; do perl ./nevsorgen.pl < $i >> publik.txt; done
-% for i in `ls EaText/*txt`; do perl ./nevsorgen.pl < $i >> publik.txt; done
+% rm publik.txt;for i in `ls EaText/*txt`; do perl ./nevsorgen.pl $i >> publik.txt; done;for i in `ls PostText/*txt`; do perl ./nevsorgen.pl $i >> publik.txt; done
+
 % libreoffice scripted saving puts strange character first. To eliminate:
 % echo > tmp.txt; cat filename.txt >> tmp.txt; edit it and mv back.
 
