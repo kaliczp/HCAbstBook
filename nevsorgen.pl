@@ -39,7 +39,6 @@ while ($line = <STDIN>)
 	## In the case of several institutions
 	if($line =~ /\(/){
 	    $line =~ s/\([0-9]//g;
-	    $line =~ s/$/\$/;
 	    ## Több hivatkozás direkt csere. Jobb megoldás kellene.
 	    $line =~ s/1:2:3//g;
 	    $line =~ s/1:2//g;
