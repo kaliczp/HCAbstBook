@@ -3,6 +3,7 @@ my $moreinst = 0;
 $inst_was = 0;
 my $title = "Test";
 my $authors = "Peter Kalicz";
+my $first_paragraph = 0;
 print "\\phantomsection\n";
 print "\\stepcounter{articleid}\n";
 while ($line = <STDIN>)
@@ -13,13 +14,17 @@ while ($line = <STDIN>)
     if($number == 1){
 	$title = $line;
     }
-    if($number == 3){
+    if($number == 2){
 	## A tartalomjegyzék sor előállítása.
 	$rawauth = $line;
-	if($rawauth =~ /\([1-9]/){
-	    $rawauth =~ s/\([1-9]//g;
-	    $rawauth =~ s/\:[2-9]//g;
+	if($rawauth =~ /[2-9]/){
+	    $rawauth =~ s/[1-9]//g;
+	    $rawauth =~ s/,,,/,/g;
+	    $rawauth =~ s/,,/,/g;
+	    $rawauth =~ s/, $//g;
 	    $moreinst = 1;
+	} else {
+	    $rawauth =~ s/1//g;
 	}
 	my @authors = split(",",$rawauth);
 	$numauthors = $#authors + 1;
@@ -40,28 +45,14 @@ while ($line = <STDIN>)
 	print join(" ",$firstauthname,$title),"}\n";
 	## A szerzők csinosítása a szöveghez
 	## In the case of several institutions
-	if($line =~ /\(/){
-	    $line =~ s/\(/\$\^/g;
-	    $line =~ s/,/\$,/g;
-	    $line =~ s/$/\$/;
-	    ## Több hivatkozás direkt csere. Jobb megoldás kellene.
-	    $line =~ s/1:2:3/\{1,2,3\}/g;
-	    $line =~ s/1:2/\{1,2\}/g;
-	    $line =~ s/1:5/\{1,5\}/g;
-	    $line =~ s/2:3:7/\{2,3,7\}/g;
-	    $line =~ s/1:3:5/\{1,3,5\}/g;
-	    $line =~ s/2:4:5/\{2,4,5\}/g;
-	    $line =~ s/2:3/\{2,3\}/g;
-	    $line =~ s/1:3/\{1,3\}/g;
-	    $line =~ s/2:4/\{2,4\}/g;
-	    $line =~ s/1:7/\{1,7\}/g;
-	    $line =~ s/4:5/\{4,5\}/g;
-	    $line =~ s/4:6/\{4,6\}/g;
-	    $line =~ s/2:6/\{2,6\}/g;
-	    $line =~ s/3:9/\{3,9\}/g;
-	    $line =~ s/3:4/\{3,4\}/g;
-	    $line =~ s/3:5/\{3,5\}/g;
-	    $line =~ s/2:10/\{2,10\}/g;
+	if($line =~ /[2-9]/){
+	    $line =~ s/([1-9],[2-9],[2-9]), /\$\^{$1}\$, /g; # 3 nums
+	    $line =~ s/([1-9],[2-9]), /\$\^{$1}\$, /g; # 2 nums
+	    $line =~ s/([1-9]), /\$\^$1\$, /g; # 1 num
+	    $line =~ s/([1-9],[2-9])$/\$\^{$1}\$/g; # 2 nums at end
+	    $line =~ s/([1-9])$/\$\^$1\$/g; # 1 num at end
+	} else { # Only one institution
+	    $line =~ s/1/\$\^1\$/g;
 	}
 	$fullauthors = $line;
 # A nem vesszővel kezdődő szóközök cserélése törhetetlenné.
@@ -85,32 +76,48 @@ while ($line = <STDIN>)
 	    }
 	}
     }
-    if($number > 4 && $number < 16 && $line =~ m/[0-9]\)/ && $inst_was < 2){
+    if($number > 2 && $number < 10 && $line =~ m/[0-9]/ && $inst_was < 2){
 	if($moreinst){
 #	    $line =~ s/^10/{10}\$/;
 	    $line =~ s/^/\$\^/;
-	    $line =~ s/\)/\$/;
+	    $line =~ s/ /\$/;
 	    print "\\institute{",$line,"}\n\n";
 	} else { # Csak egy institute
-	    $line =~ s/^1\)//;
+	    $line =~ s/^1 /\$\^1\$/;
 	    print "\\institute{",$line,"}\n\n";
 	}
 	## Itt csak menteni kellene
 	$inst_was = 1;
     }
-    if ($number > 5 && $number < 20 && $line =~ /^\s*$/) { # checks for 0 or more whitespaces (\s*) bound by beginning(^)/end($) of line.
+    if ($number > 3 && $number < 16 && $line =~ /^\s*$/) { # checks for 0 or more whitespaces (\s*) bound by beginning(^)/end($) of line.
 	$inst_was = 2;
-	## Institutionokat nyomtatni, aztán az emailt
-	print "\\end{flushleft}\n\n\\noindent";
-	$number = 21;
+	$number = 10;
     }
     # if($number > 5 && $number < 10 && $line !~ /\)/ && $inst_was !~ 1){
     # 	## Institutionokat nyomtatni, aztán az emailt
     # 	print "\\end{flushleft}\n\n\\noindent\n";
     # 	$number = 20;
     # }
-    if($number > 20){
-	print $line,"\n";
+    if($inst_was > 1 && $number > 10 && $number < 20) {
+	if($line =~ /@/){
+	    ## After affiliation email is printed
+	    $line =~ s/Corresponding author: //;
+	    print "\\email{",$line,"}\n\n";
+	    print "\\end{flushleft}\n\n";
+	} else { # in case of no email address
+	    print "\\end{flushleft}\n\n\\noindent ";
+	    print $line,"\n\n";
+	    $first_paragraph = 1;
+	}
+	$number = 20;
+    }
+    if($number > 20 && $line !~ /^\s*$/){
+	if($first_paragraph < 1){
+	    $first_paragraph = 1;
+	    print "\\noindent ",$line,"\n\n";
+	} else {
+	    print $line,"\n\n";
+	}
     }
 }
 print "\\newpage{}\n";
